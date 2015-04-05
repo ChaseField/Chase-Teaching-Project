@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+	<head>
+		<title>learningthree.js boiler plate for three.js</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+		<style>
+		div {
+			background-color: #0099FF;
+			height: 100px;
+			display:inline-block;
+			width: 100px;
+/*			border-radius: 50px;*/
+		}
+		</style>
+
+	</head>
+<body>
+
+	<div id="myDiv">
+		Play
+	</div>
+	
+	<canvas id="canvas">
+		
+	</canvas>
+	
+	<script type="text/javascript">
+
+
+
+
+
+
+
+
+	var RepresetableObject = function () {
+		this.picture = "";
+	}
+	
+	RepresetableObject.prototype = {
+		
+		draw: function () {
+			document.getElementById("myImage").src=this.picture
+		}
+		
+	}
+
+	var Container = function () {
+
+		this.volume = 0;
+
+	};
+	
+	Container.prototype = new RepresetableObject();
+	Container.prototype.contstructor = Container;
+	
+	Container.prototype = {
+		pour : function (container, volume) {
+	
+			container.volume += volume;
+			this.volume -= volume;
+	
+		}
+	};
+
+
+	var SyrupContainer = function () {
+
+		var label = "log cabin";
+		var cap = "small red";
+		this.picture = "http://images.iherb.com/l/CFF-43912-4.jpg"
+	
+	};
+
+	SyrupContainer.prototype = new Container();
+	SyrupContainer.prototype.contstructor = SyrupContainer;
+
+	var Cup = function () {
+
+		this.color = "red";
+		this.picture = "http://i.c-b.co/is/image/Crate/EspressoCupOT9/$web_zoom$&/1308302308/espresso-cup.jpg"
+		
+	}
+
+
+	Cup.prototype = new Container();
+	Cup.prototype.contstructor = Cup;
+
+	var myCup = new Cup();
+	myCup.volume = 0;
+
+	var syrup = new SyrupContainer();
+	syrup.volume = 32;
+
+
+	syrup.pour(myCup, 8)
+
+	myCup.pour(syrup, 8)
+	
+	//
+	//
+	// class Vessel = {
+	// 	var size =
+	//
+	// }
+	//
+	//
+	//
+	//
+	//
+
+
+
+
+	var Noun = function () {
+		
+		this.propertyName = "initial value";
+		this.anotherPropertyName = "initial value";
+		
+	};
+	
+	Bouncer.prototype = {
+	
+		move: function (direction) {
+			
+		},
+		
+		reflect: function (ball) {
+			ball.speed = -2.5
+			
+		},
+		
+		onClick: function (startplay) {
+			
+		},
+		
+		stop: function (wall) {
+			
+		}
+		
+	};
+	
+	var Player = function (position){
+		this.bouncer = new Bouncer(position)
+		
+	}
+	
+	var Bouncer = function (position){
+		
+		document.addEventListener("keydown", this.move, false);
+		
+		
+		
+		this.position = position
+		this.width = 1
+		this.range = {
+			x: 10,
+			y: 10,
+		};
+
+		
+	}
+
+	var Ball = function (){
+		this.position = ".5"
+		this.speed = "1.25"
+	}
+
+
+	bouncer
+		-width,position,speed
+	Ball
+		-position,speed,direction,size
+	Goal
+		-position,size
+	Wall
+		-position
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	var canvas = document.getElementById("canvas").getContext("2d");
+    canvas.canvas.width  = window.innerWidth;
+    canvas.canvas.height = window.innerHeight;
+	
+	var drawRectangle = function (ctx, height, width, x, y) {
+		ctx.moveTo(x, y);
+		ctx.fillRect(x, y, width, height);
+	};
+	
+	var drawCircle = function (ctx, radius, x, y) {
+		ctx.moveTo(x, y);
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+        ctx.fillStyle = 'black';
+        ctx.fill();
+		ctx.endPath();
+	}
+	
+	var time = 0;
+	var animate = function () {
+		canvas.clearRect(0, 0, window.innerWidth, window.innerHeight);
+		time += 1;
+		requestAnimationFrame(animate);
+		
+		
+		
+		drawCircle(canvas, 10, time / 10, 10)
+		
+		
+		
+		
+		
+		
+	}
+
+	document.getElementById("myDiv").onclick = function () {
+		var radius = 0;
+
+		var interval = setInterval(function () {
+		
+			radius += 1;
+			
+			document.getElementById("myDiv").style.borderRadius = (radius / 1) + "px";
+			console.log((radius) + "px")
+			if (radius > document.getElementById("myDiv").offsetHeight/2) {
+				clearInterval(interval)
+				animate();
+			}
+		}, 33)
+		
+	}
+
+
+
+
+
+	
+	</script>
+</body>
+</html>
